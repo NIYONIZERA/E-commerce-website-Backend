@@ -1,9 +1,13 @@
 import userModel from "../models/userModel.js"
 import bcrypt from "bcryptjs"
 import  jwt from "jsonwebtoken"
+import { validationResult } from "express-validator";
+import BadRequestError from "../errors/BadRequestError.js";
+
 
 const userController={
  registerUser : async (req, res) => {
+  
     try {
       const { username, email, password } = req.body;
       // Check if user already exists
@@ -19,7 +23,7 @@ const userController={
       await user.save();
       // Generate JWT token
       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-      res.status(201).json(user);
+      res.status(201).send("User created");
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Server error' });
@@ -41,7 +45,7 @@ const userController={
     }
     // Generate JWT token
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
+    res.json(user);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });

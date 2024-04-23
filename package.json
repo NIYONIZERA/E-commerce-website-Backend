@@ -2,12 +2,12 @@
   "name": "e-commerce-website-backend",
   "version": "1.0.0",
   "description": "E-commerce-website-Backend is a platform where a users can browse a product, add them to their cart, make purchases and manage their orders.",
-  "main": "index.js",
-  "type":"module",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js",
-    "dev":"nodemon"
+    "start": "node server.js",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",
