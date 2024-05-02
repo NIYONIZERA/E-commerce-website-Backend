@@ -12,5 +12,7 @@ const orderSchema=new mongoose.Schema({
     ],
     totalPrice: { type: Number, required: true },
     isPaid: { type: Boolean, default: false },
-    paidAt: { type: Date }
+    //paidAt: { type: Date }
 })
+const orderModel=mongoose.model("order",orderSchema);
+export default orderModel;
