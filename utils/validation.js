@@ -7,7 +7,7 @@ export const addProductValidator=[
 ];
 export const registerUserValidations = [
    
-    body("userName", "User name  is required").not().isEmpty(),
+    body("username", "User name  is required").not().isEmpty(),
     body("email", "Email is required").not().isEmpty(),
     body("email", "Invalid email").isEmail(),
     body("password", "Password is required").not().isEmpty(),
@@ -19,4 +19,11 @@ export const loginUserValidations = [
     body("email", "Invalid email").isEmail(),
     body("password", "Password is required").not().isEmpty(),
     body("password", "Invalid password").isStrongPassword()
+];
+export const forgotpasswordValidation=[
+    body("email","Email is required").not().isEmpty(),
+]
+export const resetPasswordValidation=[
+    body("password","password is required").not().isEmpty(),
+    body("password","Password  should contain atleast 8 characters,uppercase and lower case letters,numbers and symbols").isStrongPassword()
 ];
